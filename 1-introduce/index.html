@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Introduction :: AWS RDS PostgreSQL</title>
+    <title>Introduction :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1696781237" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1696781237" rel="stylesheet">
-    <link href="/css/hybrid.css?1696781237" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1696781237" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1696781237" rel="stylesheet">
-    <link href="/css/auto-complete.css?1696781237" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1696781237" rel="stylesheet">
-    <link href="/css/theme.css?1696781237" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1696781237" rel="stylesheet">
+    <link href="/css/nucleus.css?1699108682" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1699108682" rel="stylesheet">
+    <link href="/css/hybrid.css?1699108682" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1699108682" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1699108682" rel="stylesheet">
+    <link href="/css/auto-complete.css?1699108682" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1699108682" rel="stylesheet">
+    <link href="/css/theme.css?1699108682" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1699108682" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1696781237" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1699108682" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1696781237"></script>
+    <script src="/js/jquery-3.3.1.min.js?1699108682"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1696781237"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1696781237"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1699108682"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1699108682"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1696781237"></script>
+<script type="text/javascript" src="/js/search.js?1699108682"></script>
 
     
   </div>
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/" title="Preparation Step" class="dd-item 
+    <li data-nav-id="/2-preparation/" title="Preparation step" class="dd-item 
         
         
         
         ">
       <a href="/2-preparation/">
-           <b> 2. </b> Preparation Step
+           <b> 2. </b> Preparation step
           
             <i class="fas fa-check read-icon"></i>
           
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2-1-createvpc/" title="Create a VPC" class="dd-item 
+    <li data-nav-id="/2-preparation/2-1-setupenv/" title="Set up enviroment" class="dd-item 
         
         
         
         ">
-      <a href="/2-preparation/2-1-createvpc/">
-           <b> 2.1. </b> Create a VPC
+      <a href="/2-preparation/2-1-setupenv/">
+           <b> 2.1. </b> Set up enviroment
           
             <i class="fas fa-check read-icon"></i>
           
@@ -167,153 +167,13 @@
  
   
     
-    <li data-nav-id="/2-preparation/2-2-createec2sg/" title="Create EC2 Security Group" class="dd-item 
+    <li data-nav-id="/2-preparation/2-2-ssm/" title="AWS Secret Manager" class="dd-item 
         
         
         
         ">
-      <a href="/2-preparation/2-2-createec2sg/">
-           <b> 2.2. </b> Create EC2 Security Group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-preparation/2-3-createrdssg/" title="Create RDS Security Group" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-preparation/2-3-createrdssg/">
-           <b> 2.3. </b> Create RDS Security Group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-preparation/2-4-createdbsubnetgroup/" title="Create DB Subnet group" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-preparation/2-4-createdbsubnetgroup/">
-           <b> 2.4. </b> Create DB Subnet group
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-preparation/2-5-createec2appsv/" title="Create EC2 instance for app server" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-preparation/2-5-createec2appsv/">
-           <b> 2.5. </b> Create EC2 instance for app server
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-preparation/2-6-createec2bastionhost/" title="Create bastion host EC2 instance " class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-preparation/2-6-createec2bastionhost/">
-           <b> 2.6. </b> Create bastion host EC2 instance 
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-preparation/2-7-createrdsdb/" title="Create RDS PostgreSQL DB" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/2-preparation/2-7-createrdsdb/">
-           <b> 2.7. </b> Create RDS PostgreSQL DB
+      <a href="/2-preparation/2-2-ssm/">
+           <b> 2.2.</b> AWS Secret Manager
           
             <i class="fas fa-check read-icon"></i>
           
@@ -342,13 +202,13 @@
  
   
     
-    <li data-nav-id="/3-startwithpostgresql/" title="Start with PostgreSQL" class="dd-item 
+    <li data-nav-id="/3-codeexamplefordbconnection/" title="Code example for database connection" class="dd-item 
         
         
         
         ">
-      <a href="/3-startwithpostgresql/">
-           <b> 3. </b> Start with PostgreSQL
+      <a href="/3-codeexamplefordbconnection/">
+           <b> 3. </b> Code example for database connection
           
             <i class="fas fa-check read-icon"></i>
           
@@ -373,13 +233,13 @@
  
   
     
-    <li data-nav-id="/3-startwithpostgresql/3-1-pgadmin/" title="pgAdmin4" class="dd-item 
+    <li data-nav-id="/3-codeexamplefordbconnection/3-1-sampledbconnect/" title="Simple database connection" class="dd-item 
         
         
         
         ">
-      <a href="/3-startwithpostgresql/3-1-pgadmin/">
-           <b> 3.1. </b> pgAdmin4
+      <a href="/3-codeexamplefordbconnection/3-1-sampledbconnect/">
+           <b> 3.1. </b> Simple database connection
           
             <i class="fas fa-check read-icon"></i>
           
@@ -401,153 +261,13 @@
  
   
     
-    <li data-nav-id="/3-startwithpostgresql/3-2-databaseschemas/" title="Database and Schemas" class="dd-item 
+    <li data-nav-id="/3-codeexamplefordbconnection/3-2-autofetchingcredential/" title="Auto-fetching instance credentials and connecting" class="dd-item 
         
         
         
         ">
-      <a href="/3-startwithpostgresql/3-2-databaseschemas/">
-           <b> 3.2. </b> Database and Schemas
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-startwithpostgresql/3-3-tablesdatatypes/" title="Tables and Datatypes" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-startwithpostgresql/3-3-tablesdatatypes/">
-           <b> 3.3. </b> Tables and Datatypes
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-startwithpostgresql/3-4-basicdml/" title="Basic DML (Data Manipulation Language)" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-startwithpostgresql/3-4-basicdml/">
-           <b> 3.4. </b> Basic DML (Data Manipulation Language)
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-startwithpostgresql/3-5-rolesusers/" title="Roles and Users" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-startwithpostgresql/3-5-rolesusers/">
-           <b> 3.5. </b> Roles and Users
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-startwithpostgresql/3-6-catalodatadictonary/" title="Catalog and Data dictionary" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-startwithpostgresql/3-6-catalodatadictonary/">
-           <b> 3.6. </b> Catalog and Data dictionary
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-startwithpostgresql/3-7-sessionparameters/" title="Session parameters" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-startwithpostgresql/3-7-sessionparameters/">
-           <b> 3.7. </b> Session parameters
+      <a href="/3-codeexamplefordbconnection/3-2-autofetchingcredential/">
+           <b> 3.2. </b> Auto-fetching instance credentials and connecting
           
             <i class="fas fa-check read-icon"></i>
           
@@ -576,135 +296,13 @@
  
   
     
-    <li data-nav-id="/4-connectordspostgresql/" title="Connect to RDS PostgreSQL AWS " class="dd-item 
+    <li data-nav-id="/4-deploynodejsapp/" title="Deploying AWS FCJ User Management System" class="dd-item 
         
         
         
         ">
-      <a href="/4-connectordspostgresql/">
-           <b> 4. </b> Connect to RDS PostgreSQL AWS 
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-connectordspostgresql/4-1-usingpgadmin4/" title="Using pgAdmin4 to connect to RDS PostgreSQL" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-connectordspostgresql/4-1-usingpgadmin4/">
-           <b> 4.1. </b> Using pgAdmin4 to connect to RDS PostgreSQL
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-connectordspostgresql/4-2-usingpsql/" title="Using EC2 instance to connect to RDS PostgreSQL" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-connectordspostgresql/4-2-usingpsql/">
-           <b> 4.2 </b> Using EC2 instance to connect to RDS PostgreSQL
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-connectordspostgresql/4-3-queryingdata/" title="Querying Data" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-connectordspostgresql/4-3-queryingdata/">
-           <b> 4.3. </b> Querying Data
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-helpfulresources/" title="Helpful Resources" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-helpfulresources/">
-           <b> 5. </b> Helpful Resources
+      <a href="/4-deploynodejsapp/">
+           <b> 4. </b> Deploying AWS FCJ User Management System
           
             <i class="fas fa-check read-icon"></i>
           
@@ -724,13 +322,13 @@
  
   
     
-    <li data-nav-id="/6-cleanup/" title="Clean up resources" class="dd-item 
+    <li data-nav-id="/5-cleanup/" title="Clean up " class="dd-item 
         
         
         
         ">
-      <a href="/6-cleanup/">
-           <b> 6. </b> Clean up resources
+      <a href="/5-cleanup/">
+           <b> 7. </b> Clean up 
           
             <i class="fas fa-check read-icon"></i>
           
@@ -879,7 +477,7 @@
             
           
           
-            <a href='/'>AWS RDS PostgreSQL</a> > Introduction
+            <a href='/'>AWS RDS PostgreSQL for Developers</a> > Introduction
           
         
           
@@ -914,17 +512,26 @@
 
 
 
-	<p><a href="https://aws.amazon.com/rds/postgresql/what-is-postgresql/">PostgreSQL</a> has become the preferred <a href="https://aws.amazon.com/products/databases/open-source-databases/">open source</a> relational database for many enterprise developers and startups, powering leading business and mobile applications. Amazon RDS makes it easier to set up, operate, and scale PostgreSQL deployments on the cloud. With Amazon RDS, you can deploy scalable PostgreSQL deployments in minutes with cost-efficient and resizable hardware capacity. Amazon RDS manages complex and time-consuming administrative tasks such as PostgreSQL software installation and upgrades, storage management, replication for high availability and read throughput, and backups for disaster recovery.</p>
-<p>Amazon RDS for PostgreSQL gives you access to the capabilities of the familiar PostgreSQL database engine. This means that the code, applications, and tools you already use today with your existing databases can be used with Amazon RDS. Amazon RDS for PostgreSQL currently supports PostgreSQL 9.6, 10, 11, 12, 13, 14, and 15. With <a href="https://aws.amazon.com/rds/postgresql/features/">Trusted Language Extensions (TLE) for PostgreSQL</a>, you can build high performance extensions and safely run them on Amazon RDS using popular trusted languages without needing AWS to certify code.</p>
-<p><img src="/images/1/2.png" alt="intro">
-By using AWS RDS PostgreSQL, you will get the following benefit below:</p>
+	<p><strong>Amazon Relational Database Service (RDS) for PostgreSQL</strong> is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. With RDS, you don&rsquo;t have to worry about managing the underlying infrastructure—RDS takes care of provisioning, patching, backing up, and monitoring your databases for you. This frees you up to focus on developing and running your applications.</p>
+<p><strong>AWS RDS for PostgreSQL</strong> is a popular choice for developers because it offers a wide range of features and benefits, including:</p>
 <ul>
-<li>Easier, managed deployments</li>
-<li>Fast, predictable storage</li>
-<li>Backup and recovery</li>
-<li>High availability and read replicas</li>
-<li>Monitoring and metrics</li>
-<li>Isolation and security</li>
+<li>Scalability: RDS makes it easy to scale your PostgreSQL databases up or down as needed. You can add or remove instances, change instance classes, and modify storage capacity without having to downtime your applications.</li>
+<li>High availability: RDS provides high availability for your PostgreSQL databases with features such as read replicas, multi-AZ deployments, and automatic point-in-time recovery.</li>
+<li>Security: RDS offers a variety of security features to help protect your PostgreSQL databases, including encryption, access control, and auditing.</li>
+<li>Cost-effectiveness: RDS is a cost-effective way to run PostgreSQL databases in the cloud. You only pay for the resources you use, and you can save money by using reserved instances.</li>
+</ul>
+<p>In addition to these core features, RDS for PostgreSQL also offers a number of other features that are specifically designed for developers, such as:</p>
+<ul>
+<li><strong>Integrated tools</strong>: RDS provides a number of integrated tools that can help you develop, manage, and monitor your PostgreSQL databases, such as the RDS console, the AWS CLI, and the RDS Data API.</li>
+<li><strong>Support for popular development languages and frameworks</strong>: RDS for PostgreSQL supports a wide range of popular development languages and frameworks, including Java, Python, PHP, Ruby, and Node.js.</li>
+<li><strong>Compatibility with existing PostgreSQL applications</strong>: RDS for PostgreSQL is compatible with existing PostgreSQL applications, so you can migrate your applications to RDS without having to make any changes.</li>
+</ul>
+<p>Overall, AWS RDS for PostgreSQL is a powerful and flexible managed database service that offers a wide range of features and benefits for developers. If you are looking for a way to easily set up, operate, and scale PostgreSQL databases in the cloud, then AWS RDS for PostgreSQL is a great choice.</p>
+<p><em><strong>Here are some specific examples of how developers can use AWS RDS for PostgreSQL:</strong></em></p>
+<ul>
+<li>Develop and test new applications: Developers can use RDS for PostgreSQL to quickly and easily create new PostgreSQL databases for development and testing. They can then use the integrated tools to manage and monitor their databases.</li>
+<li>Deploy and scale production applications: Developers can deploy their production PostgreSQL applications to RDS for PostgreSQL and scale them up or down as needed. They can also use the high availability features to ensure that their applications are always up and running.</li>
+<li>Migrate existing applications to RDS: Developers can migrate their existing PostgreSQL applications to RDS for PostgreSQL with minimal downtime. They can then use the managed service features to free up their time to focus on developing and running their applications.</li>
 </ul>
 
 
@@ -1028,86 +635,6 @@ By using AWS RDS PostgreSQL, you will get the following benefit below:</p>
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1125,152 +652,6 @@ By using AWS RDS PostgreSQL, you will get the following benefit below:</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1348,10 +729,10 @@ By using AWS RDS PostgreSQL, you will get the following benefit below:</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/" title="AWS RDS PostgreSQL"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/" title="AWS RDS PostgreSQL for Developers"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/2-preparation/" title="Preparation Step" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2-preparation/" title="Preparation step" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1361,19 +742,19 @@ By using AWS RDS PostgreSQL, you will get the following benefit below:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1696781237"></script>
-    <script src="/js/perfect-scrollbar.min.js?1696781237"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1696781237"></script>
-    <script src="/js/jquery.sticky.js?1696781237"></script>
-    <script src="/js/featherlight.min.js?1696781237"></script>
-    <script src="/js/highlight.pack.js?1696781237"></script>
+    <script src="/js/clipboard.min.js?1699108682"></script>
+    <script src="/js/perfect-scrollbar.min.js?1699108682"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1699108682"></script>
+    <script src="/js/jquery.sticky.js?1699108682"></script>
+    <script src="/js/featherlight.min.js?1699108682"></script>
+    <script src="/js/highlight.pack.js?1699108682"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1696781237"></script>
-    <script src="/js/learn.js?1696781237"></script>
-    <script src="/js/hugo-learn.js?1696781237"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1699108682"></script>
+    <script src="/js/learn.js?1699108682"></script>
+    <script src="/js/hugo-learn.js?1699108682"></script>
 
-    <link href="/mermaid/mermaid.css?1696781237" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1696781237"></script>
+    <link href="/mermaid/mermaid.css?1699108682" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1699108682"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

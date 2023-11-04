@@ -2,103 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/vi/2-preparation/2-1-createvpc/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2-1-createvpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2-1-createvpc/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/2-2-createec2sg/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2-2-createec2sg/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2-2-createec2sg/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/2-3-createrdssg/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2-3-createrdssg/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2-3-createrdssg/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/2-4-createdbsubnetgroup/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2-4-createdbsubnetgroup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2-4-createdbsubnetgroup/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/2-5-createec2appsv/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2-5-createec2appsv/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2-5-createec2appsv/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/2-6-createec2bastionhost/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2-6-createec2bastionhost/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2-6-createec2bastionhost/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/2-7-createrdsdb/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2-7-createrdsdb/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2-7-createrdsdb/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/"
-                />
-  </url><url>
     <loc>/vi/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -108,18 +13,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="/vi/"
-                />
-  </url><url>
-    <loc>/vi/4-connectordspostgresql/4-1-usingpgadmin4/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-connectordspostgresql/4-1-usingpgadmin4/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-connectordspostgresql/4-1-usingpgadmin4/"
                 />
   </url><url>
     <loc>/vi/1-introduce/</loc>
@@ -134,160 +27,103 @@
                 href="/vi/1-introduce/"
                 />
   </url><url>
-    <loc>/vi/3-startwithpostgresql/3-1-pgadmin/</loc>
+    <loc>/vi/4-deploynodejsapp/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-startwithpostgresql/3-1-pgadmin/"
+                href="/4-deploynodejsapp/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-startwithpostgresql/3-1-pgadmin/"
+                href="/vi/4-deploynodejsapp/"
                 />
   </url><url>
-    <loc>/vi/3-startwithpostgresql/3-2-databaseschemas/</loc>
+    <loc>/vi/5-cleanup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-startwithpostgresql/3-2-databaseschemas/"
+                href="/5-cleanup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-startwithpostgresql/3-2-databaseschemas/"
+                href="/vi/5-cleanup/"
                 />
   </url><url>
-    <loc>/vi/3-startwithpostgresql/</loc>
+    <loc>/vi/2-preparation/2-1-setupenv/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-startwithpostgresql/"
+                href="/2-preparation/2-1-setupenv/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-startwithpostgresql/"
+                href="/vi/2-preparation/2-1-setupenv/"
                 />
   </url><url>
-    <loc>/vi/4-connectordspostgresql/4-3-queryingdata/</loc>
+    <loc>/vi/2-preparation/2-2-ssm/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/4-connectordspostgresql/4-3-queryingdata/"
+                href="/2-preparation/2-2-ssm/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/4-connectordspostgresql/4-3-queryingdata/"
+                href="/vi/2-preparation/2-2-ssm/"
                 />
   </url><url>
-    <loc>/vi/3-startwithpostgresql/3-3-tablesdatatypes/</loc>
+    <loc>/vi/2-preparation/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-startwithpostgresql/3-3-tablesdatatypes/"
+                href="/2-preparation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-startwithpostgresql/3-3-tablesdatatypes/"
+                href="/vi/2-preparation/"
                 />
   </url><url>
-    <loc>/vi/3-startwithpostgresql/3-4-basicdml/</loc>
+    <loc>/vi/3-codeexamplefordbconnection/3-1-sampledbconnect/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-startwithpostgresql/3-4-basicdml/"
+                href="/3-codeexamplefordbconnection/3-1-sampledbconnect/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-startwithpostgresql/3-4-basicdml/"
+                href="/vi/3-codeexamplefordbconnection/3-1-sampledbconnect/"
                 />
   </url><url>
-    <loc>/vi/4-connectordspostgresql/4-2-usingpsql/</loc>
+    <loc>/vi/3-codeexamplefordbconnection/3-2-autofetchingcredential/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/4-connectordspostgresql/4-2-usingpsql/"
+                href="/3-codeexamplefordbconnection/3-2-autofetchingcredential/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/4-connectordspostgresql/4-2-usingpsql/"
+                href="/vi/3-codeexamplefordbconnection/3-2-autofetchingcredential/"
                 />
   </url><url>
-    <loc>/vi/4-connectordspostgresql/</loc>
+    <loc>/vi/3-codeexamplefordbconnection/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/4-connectordspostgresql/"
+                href="/3-codeexamplefordbconnection/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/4-connectordspostgresql/"
-                />
-  </url><url>
-    <loc>/vi/5-helpfulresources/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-helpfulresources/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-helpfulresources/"
-                />
-  </url><url>
-    <loc>/vi/3-startwithpostgresql/3-5-rolesusers/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-startwithpostgresql/3-5-rolesusers/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-startwithpostgresql/3-5-rolesusers/"
-                />
-  </url><url>
-    <loc>/vi/3-startwithpostgresql/3-6-catalodatadictonary/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-startwithpostgresql/3-6-catalodatadictonary/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-startwithpostgresql/3-6-catalodatadictonary/"
-                />
-  </url><url>
-    <loc>/vi/6-cleanup/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/6-cleanup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/6-cleanup/"
-                />
-  </url><url>
-    <loc>/vi/3-startwithpostgresql/3-7-sessionparameters/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-startwithpostgresql/3-7-sessionparameters/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-startwithpostgresql/3-7-sessionparameters/"
+                href="/vi/3-codeexamplefordbconnection/"
                 />
   </url><url>
     <loc>/vi/categories/</loc>
