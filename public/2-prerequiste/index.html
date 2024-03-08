@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.1">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Làm quen với CSS :: AWS System Manager</title>
+
+    
+    <link href="/css/nucleus.css?1708736816" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1708736816" rel="stylesheet">
+    <link href="/css/hybrid.css?1708736816" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1708736816" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1708736816" rel="stylesheet">
+    <link href="/css/auto-complete.css?1708736816" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1708736816" rel="stylesheet">
+    <link href="/css/theme.css?1708736816" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1708736816" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1708736816" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1708736816"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2-prerequiste/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1708736816"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1708736816"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1708736816"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-html/" title="Làm quen với HTML" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-html/">
+           <b> 1. </b> Làm quen với HTML
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/" title="Làm quen với CSS" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/2-prerequiste/">
+           <b> 2. </b> Làm quen với CSS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.1-createec2/" title="Preparing VPC and EC2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.1-createec2/">
+           <b> 2.1 </b> Preparing VPC and EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Create VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
+           <b> 2.1.1 </b> Create VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/" title="Create Public Subnet" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/">
+           <b> 2.1.2 </b> Create Public Subnet
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Create Private Subnet" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
+           <b> 2.1.3 </b> Create Private Subnet
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/" title="Create security groups" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.1-createec2/2.1.4-createsecgroup/">
+           <b> 2.1.4 </b> Create security groups
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.1-createec2/2.1.5-createec2linux/" title="Create Public instance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.1-createec2/2.1.5-createec2linux/">
+           <b> 2.1.5 </b> Create Public instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.1-createec2/2.1.6-createec2windows/" title="Create Private Instance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.1-createec2/2.1.6-createec2windows/">
+           <b> 2.1.6 </b> Create Private Instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-createiamrole/" title="Create IAM Role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-createiamrole/">
+           <b> 2.2 </b> Create IAM Role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/" title="Đệm, viền và khoảng lề" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/">
+           <b> 3. </b> Đệm, viền và khoảng lề
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.1-public-instance/" title="Connect to Public Instance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.1-public-instance/">
+           <b> 3.1. </b> Connect to Public Instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.2-private-instance/" title="Connect to Private instance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.2-private-instance/">
+           <b> 3.2. </b> Connect to Private instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/" title="Enable DNS hostnames" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.2-private-instance/3.2.1-enablevpcdns/">
+           <b> 3.2.1 </b> Enable DNS hostnames
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/" title="Create VPC Endpoint" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/">
+           <b> 3.2.2 </b> Create VPC Endpoint
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/" title="Create Endpoint ssm" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.1-endpointssm/">
+           <b> 3.2.2.1 </b> Create Endpoint ssm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/" title="Create Endpoint ssmmessages" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.2-endpointssmmessages/">
+           <b> 3.2.2.2 </b> Create Endpoint ssmmessages
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/" title="Create Endpoint ec2messages" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.2-private-instance/3.2.2-createvpcendpoint/3.2.2.3-endpointec2messages/">
+           <b> 3.2.2.3 </b> Create Endpoint ec2messages
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/" title="Connect to instance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-accessibilitytoinstances/3.2-private-instance/3.2.3-connectec2/">
+           <b> 3.2.3 </b> Connect to instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-s3log/" title="Thuộc tính tạo nền" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-s3log/">
+           <b> 4. </b> Thuộc tính tạo nền
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-s3log/4.1-updateiamrole/" title="Update IAM Role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-s3log/4.1-updateiamrole/">
+           <b> 4.1 </b> Update IAM Role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-s3log/4.2-creates3bucket/" title="Create S3 Bucket" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-s3log/4.2-creates3bucket/">
+           <b> 4.2 </b> Create S3 Bucket
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-s3log/4.3-creategwes3/" title="Create S3 Gateway endpoint" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-s3log/4.3-creategwes3/">
+           <b> 4.3 </b> Create S3 Gateway endpoint
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-s3log/4.4-configsessionlogs/" title="Monitor session logs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-s3log/4.4-configsessionlogs/">
+           <b> 4.4 </b> Monitor session logs
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-portfwd/" title="Thuộc tính vị trí" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-portfwd/">
+           <b> 5. </b> Thuộc tính vị trí
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/2-prerequiste/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/2-prerequiste/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>HTML - CSS cơ bản</a> > Làm quen với CSS
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Làm quen với CSS
+            </h1>
+          
+
+        
+
+
+
+	<ol>
+<li>
+<p>Sử dụng CSS trong HTML</p>
+<p>Để sử dụng CSS (Cascading Style Sheets) trong HTML, bạn có thể sử dụng phương pháp sau:</p>
+<ul>
+<li>
+<p><strong>Inline CSS</strong>: Bạn có thể áp dụng kiểu dáng trực tiếp cho một phần tử bằng cách sử dụng thuộc tính &ldquo;style&rdquo; trong thẻ HTML. Ví dụ:</p>
+<pre tabindex="0"><code>&lt;p style=&#34;color: blue; font-size: 18px;&#34;&gt;Đây là đoạn văn bản có màu xanh và cỡ chữ 18px.&lt;/p&gt;
+</code></pre></li>
+<li>
+<p><strong>Internal CSS</strong>: Bạn có thể định nghĩa các quy tắc CSS bên trong phần &ldquo;head&rdquo; của tài liệu HTML bằng cách sử dụng thẻ &ldquo;style&rdquo;. Ví dụ:</p>
+<pre tabindex="0"><code>&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: blue;
+            font-size: 18px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;Đây là đoạn văn bản có màu xanh và cỡ chữ 18px.&lt;/p&gt;
+&lt;/body&gt;
+</code></pre></li>
+<li>
+<p><strong>External CSS</strong>: Bạn có thể tạo một tệp CSS riêng biệt và liên kết nó với tài liệu HTML bằng cách sử dụng thẻ &ldquo;link&rdquo; trong phần &ldquo;head&rdquo; của tài liệu HTML. Ví dụ:</p>
+<ul>
+<li>
+<p>Tạo một tệp CSS với tên &ldquo;style.css&rdquo;:</p>
+<pre tabindex="0"><code>    /* style.css */
+p {
+    color: blue;
+    font-size: 18px;
+}
+</code></pre></li>
+<li>
+<p>Liên kết tệp CSS với tài liệu HTML:</p>
+<pre tabindex="0"><code> &lt;head&gt;
+    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;style.css&#34;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;Đây là đoạn văn bản có màu xanh và cỡ chữ 18px.&lt;/p&gt;
+&lt;/body&gt; 
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ID và Class trong CSS</p>
+<p>Trong CSS, id và class là hai cách để xác định và áp dụng kiểu dáng cho các phần tử HTML.</p>
+<ul>
+<li>
+<p>id:</p>
+<ul>
+<li>
+<p>Selector id được sử dụng để chọn một phần tử duy nhất trên trang bằng cách sử dụng giá trị id được xác định trong HTML.</p>
+</li>
+<li>
+<p>Để chọn - một phần tử bằng id, sử dụng ký tự # trước tên id.</p>
+</li>
+<li>
+<p>Cú pháp: #myElement { &hellip; }</p>
+</li>
+<li>
+<p>Ví dụ:</p>
+<pre tabindex="0"><code>#header {
+font-size: 24px;
+color: blue;
+}
+</code></pre><p>Trong ví dụ trên, tất cả các phần tử có <strong>id=&ldquo;header&rdquo;</strong> sẽ được áp dụng kiểu dáng với kích thước chữ là <strong>24px</strong> và màu chữ là xanh.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>class:</p>
+<ul>
+<li>
+<p>Selector class được sử dụng để chọn một hoặc nhiều phần tử có cùng giá trị class.</p>
+</li>
+<li>
+<p>Để chọn một phần tử bằng class, sử dụng ký tự . trước tên class.</p>
+</li>
+<li>
+<p>Cú pháp: .myClass { &hellip; }</p>
+</li>
+<li>
+<p>Ví dụ:</p>
+<pre tabindex="0"><code>.highlight {
+background-color: yellow;
+  }
+</code></pre><p><em>Trong ví dụ trên, tất cả các phần tử có <strong>class=&ldquo;highlight&rdquo;</strong> sẽ có màu nền là màu vàng.</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Kết hợp id và class:</p>
+<ul>
+<li>Bạn cũng có thể kết hợp id và class để tạo ra các selector phức tạp hơn.</li>
+<li>Ví dụ:
+<pre tabindex="0"><code>#header.highlight {
+font-weight: bold;
+}
+</code></pre><em>Trong ví dụ trên, phần tử có cả <strong>id=&ldquo;header&rdquo;</strong> và <strong>class=&ldquo;highlight&rdquo;</strong> sẽ có kiểu dáng được đặt in đậm (font-weight: bold).</em></li>
+</ul>
+</li>
+</ul>
+
+<div class="notices note" ><p>Lưu ý: Trong CSS, id mang tính duy nhất và chỉ được sử dụng cho một phần tử duy nhất trong tài liệu HTML. Trong khi đó, class có thể được áp dụng cho nhiều phần tử khác nhau trên trang.</p>
+</div>
+
+</li>
+<li>
+<p>CSS selectors cơ bản</p>
+<ul>
+<li>
+<p>Trong CSS, <strong>CSS selectors</strong> là các cách chúng ta sử dụng để chọn ra các phần tử (elements) mà chúng ta muốn &ldquo;style&rdquo; cho chúng. Có 2 <strong>CSS selectors</strong> thân thuộc với chúng ta nhất là <strong>id và class.</strong></p>
+</li>
+<li>
+<p>Trong cùng <em><strong>1 page HTML</strong></em>, <em><strong>mỗi</strong></em> <em><strong>ID cần là duy nhất</strong></em>. Đây là nguyên tắc của việc sử dụng ID, nếu vi phạm sẽ gặp cảnh báo trong tab Console của dev tool, và Javascript sẽ không lấy ra được cả 2 phần tử có dùng ID (Javascript các bạn sẽ học ở khóa sau).</p>
+</li>
+<li>
+<p><strong>CSS selectors</strong> là công cụ vô cùng mạnh mẽ. Toàn bộ các selectors trong CSS đều có thể linh động kết hợp với nhau khi sử dụng giúp lập trình viên có thể chọn được bất cứ phần tử HTML nào trong website.</p>
+<p><strong>Bảng tra cứu CSS selectors cơ bản</strong></p>
+<table>
+<thead>
+<tr>
+<th>Selector</th>
+<th>Ví dụ</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.class</td>
+<td>.intro</td>
+<td>Chọn tất cả các thẻ có class=&ldquo;intro&rdquo;</td>
+</tr>
+<tr>
+<td>.class1.class2</td>
+<td>.name1.name2</td>
+<td>Chọn tất cả các thẻ có cả name1 và name2 được đặt trong thuộc tinh class của nó</td>
+</tr>
+<tr>
+<td>*</td>
+<td>*</td>
+<td>Chọn tất cả các thẻ</td>
+</tr>
+<tr>
+<td>element</td>
+<td>h2</td>
+<td>Chọn tất cả các thẻ h2</td>
+</tr>
+<tr>
+<td>element.class</td>
+<td>div.box</td>
+<td>Chọn tất cả thẻ div có class=&ldquo;box&rdquo;</td>
+</tr>
+<tr>
+<td>element,element</td>
+<td>div,h2</td>
+<td>Chọn tất cả thẻ div và h2</td>
+</tr>
+<tr>
+<td>element element</td>
+<td>div p</td>
+<td>Chọn tất cả thẻ p trong thẻ div</td>
+</tr>
+<tr>
+<td>element &gt; element</td>
+<td>div &gt; p</td>
+<td>Chọn tất cả thẻ p là con trực tiếp của thẻ div</td>
+</tr>
+<tr>
+<td>element + element</td>
+<td>div + p</td>
+<td>Chọn thẻ p đứng liền kề sau thẻ div</td>
+</tr>
+<tr>
+<td>element ~ element</td>
+<td>div ~ p</td>
+<td>Chọn tất cả thẻ p đứng sau thẻ div</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Ví dụ:  Lựa chọn qua 1 class</p>
+<pre tabindex="0"><code>&lt;h2 id=&#34;primary-heading&#34;&gt;Tiêu đề 1&lt;/h2&gt;
+&lt;h2 id=&#34;secondary-heading&#34;&gt;Tiêu đề 2&lt;/h2&gt;
+...
+&lt;style&gt;
+    #primary-heading {
+        color: red;
+    }
+&lt;/style&gt;
+</code></pre><p><em><strong>Kết quả: Thẻ có id=&ldquo;primary-heading&rdquo; thành màu đỏ.</strong></em></p>
+</li>
+<li>
+<p>Ví dụ 2: Lựa chọn qua nhiều class</p>
+<p>Một thẻ có thể có nhiều class, mỗi class cách nhau bằng 1 khoảng trắng (dấu space).</p>
+<pre tabindex="0"><code>&lt;p class=&#34;p1-normal&#34;&gt;Đoạn văn 1&lt;/p&gt;
+&lt;p class=&#34;p1-normal&#34;&gt;Đoạn văn 2&lt;/p&gt;
+&lt;p class=&#34;p1-normal p2-red&#34;&gt;Đoạn văn 3&lt;/p&gt;
+&lt;p class=&#34;p1-normal p2-red&#34;&gt;Đoạn văn 4&lt;/p&gt;
+
+&lt;style&gt;
+    .p1-normal {
+        color: green;
+    }
+
+    &lt;!-- Lưu ý, các tên class viết liền nhau, không có khoảng trắng  --&gt;
+    .p1-normal.p2-red {
+        color: red;
+    }
+&lt;/style&gt;
+</code></pre><p><em><strong>Kết quả, tất cả các thẻ đồng thời có cả class p1-normal và p2-red đều có màu đỏ.</strong></em></p>
+</li>
+<li>
+<p>Tương tự như vậy, nếu thẻ có nhiều class hơn bạn chỉ cần nối thêm tên class vào khi CSS, ví dụ: <strong>.class1.class2.class3</strong>. Trong trường hợp này, thuộc tính CSS nằm trong selector được nối bởi nhiều class hơn (chỉ ra chi tiết hơn) sẽ được ưu tiên hơn.</p>
+</li>
+<li>
+<p>Ví dụ 3: CSS cho các thẻ con</p>
+<pre tabindex="0"><code>&lt;p class=&#34;children-1&#34;&gt;Đoạn văn 1 (không parent)&lt;/p&gt;
+&lt;p class=&#34;children-2&#34;&gt;Đoạn văn 2 (không parent)&lt;/p&gt;
+
+&lt;div class=&#34;parent&#34;&gt;
+    &lt;p&gt;Đoạn văn 1 (parent 1)&lt;/p&gt;
+    &lt;p class=&#34;children-1&#34;&gt;Đoạn văn 1 (con của .parent)&lt;/p&gt;
+    &lt;p class=&#34;children-2&#34;&gt;Đoạn văn 2 (con của .parent)&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    /* Chọn tất cả thẻ &#34;p&#34; là con của thẻ có class &#34;parent&#34; */
+    .parent p {
+        color: green;
+    }
+
+    /* Chọn tất cả thẻ có class &#34;children-1&#34; là con của thẻ có class &#34;parent&#34; */
+    .parent .children-1 {
+        color: red;
+    }
+&lt;/style&gt;
+</code></pre></li>
+</ul>
+</li>
+</ol>
+
+<div class="notices note" ><p>Chúng ta có thể tùy ý kết hợp các CSS selectors đã học để lựa chọn ra đúng thẻ chúng ta muốn CSS. Ở ví dụ trên, để lựa chọn thẻ con nằm trong 1 thẻ khác ta sẽ sử dụng selector có cú pháp selector-cha selector-con (lưu ý, giữa 2 selectors có một khoảng trắng - dấu cách).</p>
+</div>
+
+<ol start="4">
+<li>
+<p>Độ ưu tiên trong CSS</p>
+<ul>
+<li>
+<p>Khi các đối tượn chịu tác động của nhiều rule khác nhau thì xảy ra hiện tượng chồng chéo.</p>
+</li>
+<li>
+<p>Khi chồng chéo xảy ra, thử tự ưu tiên sẽ xác định định dạng của đối tượng
+10.1. Dạng chồng chéo giữa các rule khác nhau</p>
+</li>
+<li>
+<p>Thứ tự ưu tiên của bốn dạng rule như bảng dưới đây:</p>
+<table>
+<thead>
+<tr>
+<th>Các dạng rule</th>
+<th>Thứ tự ưu tiên</th>
+<th>Phạm vi tác động</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inline</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>id</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>class</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>4</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Theo bảng tổng hợp trên, có thể rút ra quy luật chung là: mức độ ưu tiên tỉ lệ nghịch với phạm vi ảnh hưởng. Phạm vi của rule càng lớn thì mức độ  ưu tiên càng thấp và ngược lại.</p>
+</li>
+<li>
+<p>Ví dụ: Đoạn code &ldquo;HTML-CSS&rdquo; dưới đây bị ảnh hưởng bởi 4 rule thuộc 4 loại khác nhau ( inline, p, class.p1, id #p2). 4 quy tắc này chỉ định 4 màu chữ khác nhau:</p>
+<pre tabindex="0"><code>&lt;p class=&#34;p1&#34; id=&#34;p2&#34; style=&#34;color:black;&#34;&gt;HTML-CSS&lt;/p&gt;
+</code></pre><p><em>Kết quả: Theo thứ tự ưu tiên, màu của &ldquo;HTML-CSS&rdquo; sẽ tuân theo màu ưu tiên (đen) của rule inline</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sử dụng biến trong CSS</p>
+<ul>
+<li>
+<p>Trong CSS, bạn không thể sử dụng biến trực tiếp như trong các ngôn ngữ lập trình như JavaScript. Tuy nhiên, từ phiên bản CSS3 trở đi, bạn có thể sử dụng các biến tùy chỉnh thông qua CSS variables (còn được gọi là CSS custom properties).</p>
+</li>
+<li>
+<p>Để sử dụng biến trong CSS, bạn cần định nghĩa biến bằng cách sử dụng syntax &ndash;tên-biến: giá-trị;.</p>
+<ul>
+<li>Ví dụ, để định nghĩa một biến màu sắc:
+<pre tabindex="0"><code>:root {
+--primary-color: #ff0000;
+} 
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>Sau đó, bạn có thể sử dụng biến này trong các khối CSS khác bằng cách sử dụng syntax <strong>var(&ndash;tên-biến)</strong>.</p>
+<ul>
+<li>
+<p>Ví dụ, để sử dụng biến màu sắc đã định nghĩa:</p>
+<pre><code>```     
+h1 {
+  color: var(--primary-color);
+}
+```
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Khi trình duyệt tải CSS, nó sẽ thay thế <strong>var(&ndash;primary-color)</strong> bằng giá trị thực tế của biến <strong>&ndash;primary-color</strong> (trong trường hợp này là #ff0000). Điều này cho phép bạn dễ dàng thay đổi giá trị của biến duy nhất và áp dụng thay đổi đó cho tất cả các vị trí mà biến được sử dụng.</p>
+</li>
+<li>
+<p>Bạn cũng có thể kế thừa giá trị biến từ phần tử cha bằng cách sử dụng syntax inherit.</p>
+<ul>
+<li>
+<p>Ví dụ:</p>
+<pre tabindex="0"><code>.child-element {
+  color: inherit;
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Các đơn vị trong CSS</p>
+<ul>
+<li><strong>Absolute units ( đơn vị tuyệt đối)</strong> là các đơn vị vật lý đã được định nghĩa sẵn và đại diện cho các đơn vị đo lường vật lý. Các đơn vị này không bị phụ thuộc và không hề thay đổi bởi bất cứ tác động nào. Gồm: <strong>px, pt, cm, mm, inch, pc</strong>. Trong CSS sẽ thường dùng đơn vị <strong>px (pixel)</strong></li>
+<li><strong>Relative units ( đơn vị tương đối)</strong> Là các đơn vị đo lường được sử dụng trong CSS ở mức tương đối, nghĩa là nó có thể sẽ được thay đổi bởi các thành phần khác ví dụ như thay đổi phụ thuộc vào kích thước màn hình. Gồm: <strong>%, rem, em, vw, vh, vmin, vmax, ex, ch</strong>. Trong CSS thường sử dụng: <strong>%, rem, em, vw, vh</strong></li>
+</ul>
+</li>
+<li>
+<p>Một số hàm trong CSS</p>
+<ul>
+<li>
+<p>CSS cung cấp một số hàm tích hợp sẵn để thực hiện các phép tính và biểu thức trong quy tắc CSS. Dưới đây là một số hàm phổ biến trong CSS:</p>
+<ul>
+<li>
+<p><strong>rgb(), rgba()</strong>: Hàm này được sử dụng để xác định một màu sắc bằng giá trị đỏ (red), xanh lá cây (green) và xanh dương (blue). Hàm rgba() còn cho phép bạn xác định một giá trị alpha (độ trong suốt) để điều chỉnh độ trong suốt của màu sắc.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>background-color: rgb(255, 0, 0); /* Màu đỏ */
+background-color: rgba(255, 0, 0, 0.5); /* Màu đỏ với độ trong suốt 50% */
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>calc()</strong>: Hàm này cho phép bạn thực hiện các phép tính số học trong giá trị CSS. Bạn có thể sử dụng các phép tính cộng (+), trừ (-), nhân (*) và chia (/) để tính toán giá trị.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>width: calc(100% - 20px); /* Chiều rộng là 100% trừ đi 20px */
+height: calc(50vh + 10px); /* Chiều cao là 50% chiều cao của viewport cộng thêm 10px */
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>var()</strong>: Hàm này được sử dụng để sử dụng giá trị của một biến CSS. Bạn có thể định nghĩa biến bằng cách sử dụng <strong>&ndash;tên-biến: giá-trị;</strong> và sau đó sử dụng <strong>var(&ndash;tên-biến)</strong> để sử dụng giá trị biến đó.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>:root {
+  --primary-color: #ff0000;
+  }
+h1 {
+  color: var(--primary-color); /* Sử dụng giá trị của biến primary-color */
+  }
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>url(): Hàm này được sử dụng để chỉ định một đường dẫn tới một tài nguyên như hình ảnh, video hoặc font.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>background-image: url(&#34;path/to/image.jpg&#34;); /* Sử dụng hình ảnh từ đường dẫn */
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>min() và max(): Hai hàm này được sử dụng để lấy giá trị nhỏ nhất hoặc lớn nhất từ một danh sách các giá trị.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>width: min(300px, 50%); /* Chiều rộng là giá trị nhỏ nhất giữa 300px và 50% */
+height: max(200px, 30vh); /* Chiều cao là giá trị lớn nhất giữa 200px và 30% chiều cao của viewport */
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+<div class="notices note" ><p>Đây chỉ là một số hàm phổ biến trong CSS. CSS cung cấp nhiều hàm khác nhau để thực hiện các phép tính và biểu thức phức tạp hơn</p>
+</div>
+
+<ol start="8">
+<li>
+<p>Pseudo classes trong CSS</p>
+<ul>
+<li>Pseudo classes trong CSS là các lớp ảo được áp dụng cho các phần tử dựa trên trạng thái hoặc quan hệ với phần tử khác trong cây DOM. Pseudo classes được kí hiệu bằng dấu hai chấm <strong>(::)</strong> hoặc dấu hai chấm đơn <strong>(:)</strong>.</li>
+<li>Dưới đây là một số pseudo classes phổ biến trong CSS:
+<ul>
+<li>
+<p><strong>:hover</strong>: Áp dụng cho phần tử khi con trỏ chuột di chuyển qua phần tử đó.</p>
+<ul>
+<li>
+<p>Ví dụ:</p>
+<pre tabindex="0"><code>  a:hover {
+  color: red;
+  }```
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>:active</strong>: Áp dụng cho phần tử khi người dùng nhấn giữ chuột trái lên phần tử đó.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>  button:active {
+  background-color: blue;
+  }
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>:focus: Áp dụng cho phần tử khi đang nhận trọng tâm (focus). Thường được sử dụng cho các phần tử có thể tương tác như input, textarea.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>  input:focus {
+  border-color: green;
+  }
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>:first-child: Áp dụng cho phần tử đầu tiên trong danh sách các phần tử con của phần tử cha.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>ul li:first-child {
+font-weight: bold;
+}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>:last-child: Áp dụng cho phần tử cuối cùng trong danh sách các phần tử con của phần tử cha.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>ul li:last-child {
+color: red;
+}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>:nth-child(): Áp dụng cho phần tử dựa trên chỉ số của nó trong danh sách các phần tử con của phần tử cha.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>ul li:nth-child(odd) {
+background-color: lightgray;
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+<div class="notices note" ><p>Trên đây chỉ là một số pseudo classes phổ biến trong CSS. CSS cung cấp nhiều pseudo classes khác nhau cho phép bạn chọn và tùy chỉnh phần tử dựa trên các trạng thái và quan hệ khác nhau trong cây DOM.</p>
+</div>
+
+<ol start="9">
+<li>Pseudo elements trong CSS
+<ul>
+<li>Pseudo elements trong CSS cho phép bạn tạo ra các phần tử ảo và chọn và tùy chỉnh chúng bằng CSS. Pseudo elements được kí hiệu bằng dấu hai chấm đôi <strong>(::)</strong>.</li>
+<li>Dưới đây là một số pseudo elements phổ biến trong CSS:
+<ul>
+<li>
+<p><strong>::before</strong>: Tạo một phần tử ảo được chèn vào phần tử đầu tiên của phần tử đã chọn. Phần tử ảo này thường được sử dụng để thêm nội dung trước phần tử đã chọn.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>p::before {
+content: &#34;Đây là nội dung trước đoạn văn.&#34;;
+font-weight: bold;
+}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>::after</strong>: Tạo một phần tử ảo được chèn vào phần tử cuối cùng của phần tử đã chọn. Phần tử ảo này thường được sử dụng để thêm nội dung sau phần tử đã chọn.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>p::after {
+content: &#34;Đây là nội dung sau đoạn văn.&#34;;
+color: red;
+}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>::first-line</strong>: Chọn dòng đầu tiên trong một phần tử dài văn bản và cho phép bạn tùy chỉnh nó.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>p::first-line {
+color: blue;
+font-size: 20px;
+}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>::first-letter</strong>: Chọn chữ cái đầu tiên trong một phần tử văn bản và cho phép bạn tùy chỉnh nó.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>p::first-letter {
+font-size: 24px;
+font-weight: bold;
+}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><strong>::selection</strong>: Tùy chỉnh phần được chọn trong văn bản khi người dùng chọn nó.</p>
+<ul>
+<li>Ví dụ:
+<pre tabindex="0"><code>::selection {
+background-color: yellow;
+color: black;
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+<div class="notices note" ><p>Trên đây chỉ là một số pseudo elements phổ biến trong CSS. Bằng cách sử dụng pseudo elements, bạn có thể tạo ra các phần tử ảo và điều chỉnh chúng để tạo hiệu ứng và trang trí phần tử gốc.</p>
+</div>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/1-html/" title="Làm quen với HTML"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/2-prerequiste/2.1-createec2/" title="Preparing VPC and EC2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1708736816"></script>
+    <script src="/js/perfect-scrollbar.min.js?1708736816"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1708736816"></script>
+    <script src="/js/jquery.sticky.js?1708736816"></script>
+    <script src="/js/featherlight.min.js?1708736816"></script>
+    <script src="/js/highlight.pack.js?1708736816"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1708736816"></script>
+    <script src="/js/learn.js?1708736816"></script>
+    <script src="/js/hugo-learn.js?1708736816"></script>
+
+    <link href="/mermaid/mermaid.css?1708736816" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1708736816"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

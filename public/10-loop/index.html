@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.1">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Vòng lặp :: AWS System Manager</title>
+
+    
+    <link href="/css/nucleus.css?1709903765" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1709903765" rel="stylesheet">
+    <link href="/css/hybrid.css?1709903765" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1709903765" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1709903765" rel="stylesheet">
+    <link href="/css/auto-complete.css?1709903765" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1709903765" rel="stylesheet">
+    <link href="/css/theme.css?1709903765" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1709903765" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1709903765" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1709903765"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/10-loop/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1709903765"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1709903765"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1709903765"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-introduction/" title="Giới thiệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-introduction/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-var-comments-builtin/" title="Var, Comment, Builtin" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-var-comments-builtin/">
+           <b> 2. </b> Var, Comment, Builtin
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-operation-datatype/" title="Toán tử, Kiểu dữ liệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-operation-datatype/">
+           <b> 3. </b> Toán tử, Kiểu dữ liệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-function/" title="Làm việc với Hàm" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-function/">
+           <b> 4. </b> Làm việc với Hàm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-string/" title="Làm việc với Chuỗi" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-string/">
+           <b> 5. </b> Làm việc với Chuỗi
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-number/" title="Làm việc với Số" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-number/">
+           <b> 6. </b> Làm việc với Số
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-array/" title="Làm việc với Mảng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-array/">
+           <b> 7. </b> Làm việc với Mảng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-object/" title="Làm việc với Object" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8-object/">
+           <b> 8. </b> Làm việc với Object
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/9-cstatement-ternaryoperator/" title="Câu lệnh điều kiện - Toán tử ba ngôi" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9-cstatement-ternaryoperator/">
+           <b> 9. </b> Câu lệnh điều kiện - Toán tử ba ngôi
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10-loop/" title="Vòng lặp" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/10-loop/">
+           <b> 10. </b> Vòng lặp
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/11-array2/" title="Làm việc với Mảng 2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11-array2/">
+           <b> 11. </b> Làm việc với Mảng 2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/10-loop/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/10-loop/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Tìm hiểu về Javascript cơ bản</a> > Vòng lặp
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Vòng lặp
+            </h1>
+          
+
+        
+
+
+
+	<h4 id="vòng-lặp-for">Vòng lặp For</h4>
+<ol>
+<li>
+<p>Khái niệm</p>
+<ul>
+<li>
+<p>Vòng lặp <strong>for</strong> là vòng lặp dùng để thực thi một hành động lặp đi lặp lại.</p>
+</li>
+<li>
+<p>Cú pháp 1:</p>
+<pre tabindex="0"><code>    for ( var i = 0; i &lt; 10; i++){
+        console.log(i);
+    }
+</code></pre><ul>
+<li><strong>var i = 0</strong>: Khởi tạo biến cho vòng lặp</li>
+<li><strong>i &lt; 10</strong>: điểu kiện để vòng lặp thực hiện</li>
+<li><strong>i++</strong>: tằng giá trị chạy lên 1 mỗi khi thực hiện xong hành động</li>
+</ul>
+</li>
+<li>
+<p>Cú pháp 2:  Bạn có thể bỏ trống <em><strong>giá trị ban đầu</strong></em> trong cú pháp của vòng lặp for nếu trước đó đã gán giá trị của biến chạy</p>
+<pre tabindex="0"><code>    var i = 0;
+    for (; i &lt; 10; i++){
+        console.log(i);
+    }
+</code></pre></li>
+<li>
+<p>Cú pháp 3: Bạn cũng có thể bỏ trống <em><strong>giá trị thứ hai</strong></em> trong cú pháp của vòng lắp for. Lúc này, nếu giá trị thứ hai trả về giá trị <em><strong>true</strong></em> thì vòng lặp tiếp tục thực thi, nếu là <em><strong>false</strong></em> thì vòng lặp sẽ dừng lại.</p>
+<pre tabindex="0"><code>    for( var i = 0; ; i++){
+        console.log(i);
+        if(i == 5) break;
+        //Nếu bỏ trống giá trị thứ hai thì bắt buộc trong vòng lặp phải có lệnh break, nếu không thì vòng lặp sẽ chạy mãi không dừng lại.
+    }
+</code></pre></li>
+<li>
+<p>Tuy nhiên, việc bỏ trống các giá trị trong cú pháp của vòng lặp for là không nên. Dù ngắn gọn nhưng nếu dùng không đúng lúc sẽ khiến code của chúng ta khó đọc lại.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Thực hành</p>
+<ul>
+<li>
+<p>Hãy tạo hàm <strong>getRandNumbers</strong> có 3 tham số là min, max, length. Hàm này sẽ trả về một mảng gồm length phần tử, các giá trị trong mảng là số ngẫu nhiên, giá trị trong khoảng từ min tới max. Gợi ý: <em><strong>Math.random() * (max - min) + min</strong></em> là cách tạo ra 1 số ngẫu nhiên trong khoảng min - max.</p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Kết quả
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code>        function getRandNumbers (min, max, length){
+            var arr=[];
+            for(var i=0; i &lt; length; i++){
+            arr.push((Math.random() * (max - min) + min));
+            }
+            return arr;
+        }
+        // Hãy lưu ý: Vòng lặp phải luôn có điểm dừng nếu không sẽ dẫn đến treo trình duyệt
+</code></pre>
+
+    </div>
+</div>
+</li>
+<li>
+<p>Cho trước mảng numbers, hãy viết hàm getTotal trả về tổng giá trị các phần tử của mảng.</p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Kết quả
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code>        function getRandNumbers (min, max, length){
+            var arr=[];
+            for(var i=0; i &lt; length; i++){
+            arr.push((Math.random() * (max - min) + min));
+            }
+            return arr;
+        }
+        // Hãy lưu ý: Vòng lặp phải luôn có điểm dừng nếu không sẽ dẫn đến treo trình duyệt
+</code></pre>
+
+    </div>
+</div>
+</li>
+<li>
+<p>Cho trước mảng orders là danh sách chứa các khóa học, các mặt hàng này được thể hiện dưới dạng object và đều có 1 key là price để thể hiện giá trị của mặt hàng đó. Bạn hãy hoàn thành hàm getTotal để tính được tổng giá trị của đơn hàng.
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Kết quả
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code>        var orders = [
+            {
+                name: 'Khóa học HTML - CSS Pro',
+                price: 3000000
+            },
+            {
+                name: 'Khóa học Javascript Pro',
+                price: 2500000
+            },
+            {
+                name: 'Khóa học React Pro',
+                price: 3200000
+            }
+        ]
+
+        var orders = [
+            {
+                name: 'Khóa học HTML - CSS Pro',
+                price: 3000000
+            },
+            {
+                name: 'Khóa học Javascript Pro',
+                price: 2500000
+            },
+            {
+                name: 'Khóa học React Pro',
+                price: 3200000
+            }
+        ]
+
+        function getTotal(order){
+            var total=0;
+            for(var i=0; i&lt;order.length;i++)
+            {
+                total=order[i].price+total;
+            }
+            return total;
+        }
+        console.log(getTotal(orders));
+
+
+        // Expected results:
+        getTotal(orders) // Output: 8700000
+</code></pre>
+
+    </div>
+</div></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="vòng-lặp-forin">Vòng lặp for&hellip;in</h4>
+<ol>
+<li>Khái niệm
+<ul>
+<li>
+<p>Vòng lặp này thường được sử dụng với mục đích là lặp trong một object chứ không phải trong array hay string giống như hai vòng lặp trên. Số lượng lặp tương ứng với số thuộc tính của object mà ta duyệt.</p>
+</li>
+<li>
+<p>Cú pháp:</p>
+<pre tabindex="0"><code>    for (var key in obj){
+        //đoạn code mà bạn muốn thực thi
+    }
+</code></pre><ul>
+<li>var key: khai báo biến chạy</li>
+<li>obj: đố tượng duyệt</li>
+</ul>
+</li>
+<li>
+<p>Ví dụ:</p>
+<pre tabindex="0"><code>    // Khai báo mảng
+    var myInfo = {
+        name: FCJ,
+        address: HCM,
+        age:10
+    }
+    // In ra các value trong array myInfo
+    for(var key in myInfo){
+        console.log(myInfo(key)); 
+    }
+    // Kết quả: FCJ HCM 10
+</code></pre></li>
+</ul>
+</li>
+<li>Thực hành
+<ul>
+<li>Hoàn thành đoạn code sau để được output như mong muốn
+<pre tabindex="0"><code>    // Expected results:
+    console.log(run({ name: &#39;First Cloud Journey&#39;, addrees: &#39;Ho Chi Minh&#39; }));
+    // Output:
+    // [
+    //     &#34;Thuộc tính name có giá trị First Cloud Journey&#34;,
+    //     &#34;Thuộc tính address có giá trị Ho Chi Minh&#34;
+    // ]
+</code></pre>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Kết quả
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code>            function run(info) {
+                var result = [];
+                for (var key in info) {
+                    result.push(&quot;Thuộc tính &quot; + [key] + &quot; có giá trị &quot; + object[key]);
+                }
+                return result;
+            }
+</code></pre>
+
+    </div>
+</div></li>
+</ul>
+</li>
+</ol>
+<h4 id="vòng-lặp-forof">Vòng lặp for&hellip;of</h4>
+<ol>
+<li>Khái niệm
+<ul>
+<li>
+<p>Vòng lặp for&hellip;of cho phép bạn lặp qua các phần tử của một đối tượng iterable trong JavaScript.</p>
+</li>
+<li>
+<p>Cú pháp:</p>
+<pre tabindex="0"><code>     for (var value of iterable){
+         // đoạn code mà bạn muốn thực thi
+     }
+</code></pre></li>
+<li>
+<p>Ví dụ</p>
+<pre tabindex="0"><code>    var myCerts = [
+        &#39;AWS Certified Solutions Architect - Professional&#39;,
+        &#39;AWS Certified DevOps Engineer - Professional&#39;,
+        &#39;AWS Certified SysOps Administrator - Associate&#39;
+    ];
+    for (var value of myCerts){
+        console.log(value)
+    }
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h4 id="vòng-lặp-while">Vòng lặp While</h4>
+<ol>
+<li>Khái niệm
+<ul>
+<li>
+<p>Vòng lặp while dùng để lặp lại việc thực thi một đoạn code nếu điều kiện mà ta đưa ra vẫn còn đúng.</p>
+</li>
+<li>
+<p>Cú pháp:</p>
+<pre tabindex="0"><code>    while(điều kiện){
+    // đoạn code mà bạn muốn thực thi
+    }
+</code></pre></li>
+<li>
+<p>Ví dụ: Dùng vòng lặp while để hiển thị dãy số tăng dần từ 1 đến 9</p>
+<pre tabindex="0"><code>    var i = 1; // khai báo biến i
+    while(i&lt;10){
+        console.log(`Kết quả: ${i}`) // in ra màn hình
+        i++; // Câu lệnh này giúp cho điều kiện dần trở thành bị SAI
+    }
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h4 id="vòng-lặp-dowhile">Vòng lặp do&hellip;while</h4>
+<ol>
+<li>Khái niệm
+<ul>
+<li>Tương tự như vòng lặp while, vòng lặp do while dùng để lặp lại việc thực thi một đoạn mã nếu điều kiện mà ta đưa ra vẫn còn đúng.</li>
+<li>Tuy nhiên, đối với vòng lặp do while thì ở lần đầu tiên đoạn mã sẽ được thực thi luôn mà không cần phải kiểm tra điều kiện (đó chính là điểm khác nhau giữa vòng lặp while và do while)</li>
+<li>Cú pháp:
+<pre tabindex="0"><code>do{
+    // Đoạn code mà bạn muốn thực thi
+}while(điều kiện)
+</code></pre></li>
+<li>Ví dụ: Dùng vòng lặp while để hiển thị dãy số giảm dần từ 9 xuống 1
+<pre tabindex="0"><code>var i = 0;
+do{
+    i++;
+    console.log(`Kết quả: ${i}`);
+}while(i&lt;9)
+</code></pre></li>
+</ul>
+</li>
+<li>Thực hành
+<ul>
+<li>
+<p>Viết một đoạn code mô tả số lần nhập mật khẩu ( không quá 3 lần nhập). Nếu nhập quá 3 lần sẽ in ra thông báo <strong>kiểm tra lại mật khẩu</strong></p>
+</li>
+<li>
+<p>Output:</p>
+<pre tabindex="0"><code>Nhập lần mật khẩu: 1
+Nhập lần mật khẩu: 2
+Nhập lần mật khẩu: 3
+Kiểm tra lại mật khẩu
+</code></pre>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Kết quả
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code>        var i = 0;
+        var isSucess = false;
+        do {
+            i++;
+            if(i == 4) {
+            console.log(&quot;Kiểm tra lại mật khẩu&quot;); 
+            break;
+            };
+            console.log(`Nhập mật khẩu lần: ${i}`);
+        }while(!isSucess &amp;&amp; i &lt; 3 )
+</code></pre>
+
+    </div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="break-và-continue-trong-vòng-lặp">Break và Continue trong vòng lặp</h4>
+<ol>
+<li>Break
+<ul>
+<li>Dùng để thoát khỏi vòng lặp ngay lập tức</li>
+<li>Khi gặp Break, vòng lặp sẽ dừng thực thi và chuyển sang phần code sau vòng lặp.</li>
+<li>Ví dụ:
+<pre tabindex="0"><code>    for (var i = 0; i &lt; 10; i++) {
+        console.log(i);
+        if (i === 5) {
+            break;
+        }
+    }
+</code></pre></li>
+</ul>
+</li>
+<li>Continue
+<ul>
+<li>Dùng để bỏ qua phần còn lại của vòng lặp hiện tại và chuyển sang lần lặp tiếp theo.</li>
+<li>Khi gặp continue, vòng lặp sẽ tiếp tục thực thi từ đầu với lần lặp tiếp theo</li>
+<li>Ví dụ:
+<pre tabindex="0"><code>    for (var i = 0; i &lt; 10; i++) {
+        if (i % 2 === 0) {
+            continue;
+        }
+    console.log(i);
+    }
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h4 id="vòng-lặp-lồng-nhau---nested-loop">Vòng lặp lồng nhau - Nested loop</h4>
+<ol>
+<li>Khái niệm
+<ul>
+<li>
+<p>Vòng lặp lồng nhau là khi một vòng lặp được đặt bên trong một vòng lặp khác. Ví dụ, một vòng lặp for có thể được đặt bên trong một vòng lặp while.</p>
+</li>
+<li>
+<p>Cú pháp:</p>
+<pre tabindex="0"><code>    for (var i = 0; i &lt; 10; i++) {
+        for (var j = 0; j &lt; 5; j++) {
+            // Khối mã được thực thi lặp lại cho mỗi giá trị của i và j
+        }
+    }
+</code></pre><ul>
+<li>Vòng lặp ngoài (vòng lặp for) sẽ lặp lại 10 lần.</li>
+<li>Vòng lặp trong (vòng lặp for) sẽ lặp lại 5 lần cho mỗi lần lặp của vòng lặp ngoài.</li>
+</ul>
+</li>
+<li>
+<p>Ví dụ:</p>
+<pre tabindex="0"><code>    var arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+
+    for (var i = 0; i &lt; arr.length; i++) {
+        for (var j = 0; j &lt; arr[i].length; j++) {
+            console.log(arr[i][j]);
+         }
+    }
+</code></pre></li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/9-cstatement-ternaryoperator/" title="Câu lệnh điều kiện - Toán tử ba ngôi"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/11-array2/" title="Làm việc với Mảng 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1709903765"></script>
+    <script src="/js/perfect-scrollbar.min.js?1709903765"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1709903765"></script>
+    <script src="/js/jquery.sticky.js?1709903765"></script>
+    <script src="/js/featherlight.min.js?1709903765"></script>
+    <script src="/js/highlight.pack.js?1709903765"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1709903765"></script>
+    <script src="/js/learn.js?1709903765"></script>
+    <script src="/js/hugo-learn.js?1709903765"></script>
+
+    <link href="/mermaid/mermaid.css?1709903765" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1709903765"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
